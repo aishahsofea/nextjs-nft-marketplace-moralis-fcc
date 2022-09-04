@@ -97,7 +97,7 @@ async function main() {
   let itemCanceledOptions = {
     chainId: moralisChainId,
     sync_historical: true,
-    topic: "ItemBought(address,address,uint256)",
+    topic: "ItemCanceled(address,address,uint256)",
     address: contractAddress,
     abi: {
       anonymous: false,
@@ -144,6 +144,8 @@ async function main() {
     itemCanceledOptions,
     { useMasterKey: true }
   );
+
+  console.log(listedResponse, boughtResponse, canceledResponse);
 
   if (
     listedResponse.success &&
